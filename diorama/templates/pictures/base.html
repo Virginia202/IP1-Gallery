@@ -1,0 +1,51 @@
+{% load bootstrap4 %}
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  {% if title %}
+  <title>Diorama - {{title}}</title>
+  {% else %}
+    <title> Diorama </title>
+  {% endif %}
+
+  {% block styles %}
+    {% bootstrap_css %}
+    <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Shade&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/basegallery.css' %}">
+  {% endblock %}
+
+</head>
+<body>
+  {% include "navbar.html" %}
+    <div class="first">
+      <div class="second text-center">
+      <h2>GEE'S GALLERY</h2>
+      <P style="color:rgb(95, 6, 6);font-size:10px;font-style: italic;">WELCOME TO GEE'S GALLERY.</P>
+      </div>
+     </div>
+  
+  
+  {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %}
+  {% endblock %}
+  <!-- Footer -->
+  <footer class="page-footer font-small special-color-dark pt-4" style="background-color: rgb(105, 99, 99);">
+
+ 
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://github.com/">Virginia202</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+</body>
+</html>

@@ -1,0 +1,28 @@
+h1
+{
+  color:rgb(17, 2, 2);
+}
+.myimage{
+  height: 400px;
+}
+.first{
+  background-image: url("https://i.imgur.com/ZJ3kXPS.jpg"); 
+  background-size: cover;
+  height: 50vh;
+  
+}
+.second{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  background-color: grey;
+
+}
+
+.first h2{
+  font-family: 'Bungee Shade', cursive;
+  color: rgb(7, 245, 245);
+  font-size: 5em;
+}
