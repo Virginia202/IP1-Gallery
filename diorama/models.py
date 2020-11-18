@@ -1,52 +1,64 @@
 from django.db import models
-from _datetime import datetime
-import datetime as dt
+import cloudinary
+from cloudinary.models import CloudinaryField
 
-class Editor(models.Model):
-    first_name = models.CharField(max_length =30)
-    last_name = models.CharField(max_length =30)
-    email = models.EmailField()
-    phone_number = models.CharField(max_length = 10,blank =True)
+class Location(models.Model):
+    name = models.CharField(max_length =25) 
     
-    def __str__(self):
-        return self.first_name
+    def save_location(self):
+        self.save()
 
-    def save_editor(self):
-        self.save()  
-
-    def delete_editor(self):
-        self.delete() 
-
-    class Meta:
-        ordering = ['first_name']
-
-class tags(models.Model):
-    name = models.CharField(max_length =30)
+    def delete_location(self):
+        self.delete()    
 
     def __str__(self):
         return self.name
 
-class Article(models.Model):
-    title = models.CharField(max_length =90)
-    post = models.TextField()
-    editor = models.ForeignKey('Editor',on_delete=models.CASCADE,)
-    editor = models.ForeignKey('Editor',on_delete=models.CASCADE,)
-    tags = models.ManyToManyField(tags)
-    pub_date = models.DateTimeField(default=datetime.now,blank=True)
-    article_image = models.ImageField(upload_to = 'articles/')
-    
+
+class Category(models.Model):
+    name = models.CharField(max_length =25)
+
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        self.delete()    
+
+    def __str__(self):
+        return self.name
+   
+
+# Create your models here.
+class Image(models.Model):
+    image = CloudinaryField('image')
+    image_name = models.CharField(max_length =25)
+    image_description = models.TextField(max_length =250)
+    image_location = models.ForeignKey('Location',on_delete=models.CASCADE,)
+    image_category = models.ManyToManyField(Category)
+
+    def __str__(self):
+        return self.image_name
+
+    class Meta:
+        ordering = ['image_name']
+
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()  
+
     @classmethod
-    def todays_gallery(cls):
-        today = dt.date.today()
-        diorama = cls.objects.filter(pub_date__date = today)
-        return diorama 
-    
+    def search_by_category(cls,search_term):
+        diorama = cls.objects.filter(image_category__name__icontains=search_term)
+        return diorama      
+
     @classmethod
-    def days_gallery(cls,date):
-        diorama = cls.objects.filter(pub_date__date = date)
-        return diorama   
-    
+    def retrive_all_images(cls):
+        diorama = Image.objects.all()
+        return diorama
+
     @classmethod
-    def search_by_title(cls,search_term):
-        diorama = cls.objects.filter(title__icontains= search_term)
+    def get_image_by_id(cls, id):
+        diorama = cls.objects.get(pk=id)
         return diorama

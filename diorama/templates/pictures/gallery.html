@@ -1,118 +1,16 @@
-{% extends 'pictures/base.html' %}
-{% block content %} 
-{{ block.super}}
+{%extends 'pictures/base.html'%}
+
+{% block content %}
+{{block.super}}
 
 <div class="container">
-
-  <!-- Looping through news   -->
-  {% for diorama_item in diorama %}
-
-  <div class="row">
-    <!-- displaying News articles -->
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <h2 class="text-center"> {{ diorama_item.title }} </h2>
+    <div class="row">
+    <!-- display images -->
+        <div>
+            <h3> {{ gallery_item.image }} </h3>
+            <h4> {{ gallery_item.name }}</h4>
+        </div>
     </div>
-
-
-    <!--Display news Article images  -->
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <img src="{{diorama_item.article_image.url}}" class="img-responsive" alt="Image">
-    </div>
-
-  </div>
-
-
-  <div class="row">
-    <h2 class="text-center">There No Gallery Items</h2>
-  </div>
-  {% endfor %}
-
 </div>
-<div class="container">
-  <div class="row">
-    <!-- Button trigger modal -->
-     <div class="col-md-4">
-     <a href="" data-toggle="modal" data-target="#exampleModal5"><img src="https://i.imgur.com/74jkQgD.jpg"   class="img-responsive"   width="300" height="300" ></a>
-    </div>
-    <div class="col-md-4">
-     <a href="" data-toggle="modal" data-target="#exampleModal6"><img src="https://i.imgur.com/GWrViL8.jpg"   class="img-responsive"   width="300" height="300" ></a>
-    </div>
-    <div class="col-md-4">
-     <a href="" data-toggle="modal" data-target="#exampleModal7"><img src="https://i.imgur.com/ZTf2pFJ.jpg"   class="img-responsive"   width="300" height="300" ></a>
-    </div>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog" role="document">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title" id="exampleModalLabel">Delicacy</h5>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-           </button>
-         </div>
-         <div class="modal-body">
-          <img src="https://i.imgur.com/74jkQgD.jpg" title="source: imgur.com" width="200px" height="200px" />
-         <p>Created:jan.30.2020</p>
-         <p>location:Hilton Hotel</p>
-         </div>
-         
-         <div class="modal-footer">
-           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-           <button type="button" class="btn btn-primary">copy image</button>
-         </div>
-       </div>
-     </div>
-    </div>
-    <!-- Modal2 -->
-    <div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Delicacy</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-          <img src="https://i.imgur.com/GWrViL8.jpg" title="source: imgur.com" width="200px" height="200px" />
-          <p>Created:jan.30.2020</p>
-          <p>location:Sarova Hotel</p>
-          </div>
-          
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">copy image</button>
-          </div>
-        </div>
-      </div>
-     </div>
-     <!-- Modal3 -->
-    <div class="modal fade" id="exampleModal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Delicacy</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-          <img src="https://i.imgur.com/ZTf2pFJ.jpg" title="source: imgur.com" width="200px" height="200px" />
-          <p>Created:jan.30.2020</p>
-          <p>location:Kempisky</p>
-          </div>
-          
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">copy image</button>
-          </div>
-        </div>
-      </div>
-     </div>
-    </div>
-    </div>
-    
-    
 
 {% endblock %}

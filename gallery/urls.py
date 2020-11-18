@@ -21,5 +21,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^diorama/',include('diorama.urls'))
+    url(r'',include('diorama.urls'))
 ]

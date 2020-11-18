@@ -6,9 +6,10 @@ h1
   height: 400px;
 }
 .first{
-  background-image: url("https://i.imgur.com/ZJ3kXPS.jpg"); 
+  background-image: url("/media/articles/martin-schmidli-0ZWu96-_4Sk-unsplash.jpg");
   background-size: cover;
   height: 50vh;
+  background-color: rgb(190, 110, 150);
   
 }
 .second{
@@ -17,12 +18,16 @@ h1
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ffffff;
-  background-color: grey;
+  /* background-color: grey; */
 
 }
 
 .first h2{
   font-family: 'Bungee Shade', cursive;
-  color: rgb(7, 245, 245);
+  color: rgba(184, 34, 34, 0.877);
   font-size: 5em;
+}
+.images>img{
+      height: 200px;
+      width: 20em;
 }

@@ -1,181 +1,57 @@
 {% extends 'pictures/base.html' %}
 
- {% block content %}
- <div class="container">
-   <h1>Cute Cats</h1>
-  <div class="row">
-<!-- Button trigger modal -->
- <div class="col-md-4">
- <a href="" data-toggle="modal" data-target="#exampleModal"><img src="https://i.imgur.com/rkTRCKW.jpg"   class="img-responsive"   width="300" height="300" ></a>
-</div>
-<div class="col-md-4">
- <a href="" data-toggle="modal" data-target="#exampleModal2"><img src="https://i.imgur.com/vBOKrni.jpg"   class="img-responsive"   width="300" height="300" ></a>
-</div>
-<div class="col-md-4">
- <a href="" data-toggle="modal" data-target="#exampleModal3"><img src="https://i.imgur.com/Ox51xK9.jpg"   class="img-responsive"   width="300" height="300" ></a>
-</div>
+{% block content %}
+{{block.super}}
+
+<div class="container-fluid" style="background-color: rgb(36, 39, 39)" ;>
+    <!-- displaying images -->
+    <div class="row">
+        {% for post in images %}
+
+        <div class="col-md-3">
+            <!-- modal button -->
+            <button type="button" class="" data-toggle="modal" data-target="#myModal{{post.id}}">
+                <img src="{{post.image.url }}" alt="" width="250" height="250">
+                <p>{{ post.image_name }}</p>
+            </button>
+            <br>
+
+            <!-- modal -->
+        </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       <h5 class="modal-title" id="exampleModalLabel">Beautiful Cat</h5>
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body">
-      <img src="https://i.imgur.com/rkTRCKW.jpg" title="source: imgur.com" width="200px" height="200px" />
-     <p>Created:November 10:2020</p>
-     <p>location:Nairobi</p>
-     <p>Ain't she pretty</p>
-     </div>
-     
-     <div class="modal-footer">
-       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       <button type="button" class="btn btn-primary">copy image</button>
-     </div>
-   </div>
- </div>
-</div>
-<!-- Modal2 -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"           aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Beautiful Cat</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    <div class="modal-body">
-      <img src="https://i.imgur.com/vBOKrni.jpg" title="source: imgur.com" width="200px" height="200px" />
-      <p>Created:November.10.2020</p>
-      <p>location:Nairobi</p>
-    </div>
-      
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">copy image</button>
-    </div>
+        {% endfor %}
     </div>
 </div>
-</div>
- <!-- Modal3 -->
-<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Beautiful Cat</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <img src="https://i.imgur.com/Ox51xK9.jpg" title="source: imgur.com" width="200px" height="200px" />
-      <p>Created:November.10.2020</p>
-      <p>location:Nairobi</p>
-      </div>
-      
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">copy image</button>
-      </div>
-    </div>
-  </div>
- </div>
-</div>
-<br>
-<br>
-<!-- <br>
-<br>
-<br> -->
-<h1>Food</h1>
- <div class="row">
-<!-- Button trigger modal -->
- <div class="col-md-4">
- <a href="" data-toggle="modal" data-target="#exampleModal5"><img src="https://i.imgur.com/74jkQgD.jpg"   class="img-responsive"   width="300" height="300" ></a>
-</div>
-<div class="col-md-4">
- <a href="" data-toggle="modal" data-target="#exampleModal6"><img src="https://i.imgur.com/GWrViL8.jpg"   class="img-responsive"   width="300" height="300" ></a>
-</div>
-<div class="col-md-4">
- <a href="" data-toggle="modal" data-target="#exampleModal7"><img src="https://i.imgur.com/ZTf2pFJ.jpg"   class="img-responsive"   width="300" height="300" ></a>
-</div>
+{% for post in images %}
+<!-- modal content -->
+<div class="modal fade" id="myModal{{post.id}}" role="dialog">
+    <div class="modal-dialog">
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       <h5 class="modal-title" id="exampleModalLabel">Delicacy</h5>
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body">
-      <img src="https://i.imgur.com/74jkQgD.jpg" title="source: imgur.com" width="200px" height="200px" />
-     <p>Created:jan.30.2020</p>
-     <p>location:Hilton Hotel</p>
-     </div>
-     
-     <div class="modal-footer">
-       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       <button type="button" class="btn btn-primary">copy image</button>
-     </div>
-   </div>
- </div>
-</div>
-<!-- Modal2 -->
-<div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delicacy</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <img src="https://i.imgur.com/GWrViL8.jpg" title="source: imgur.com" width="200px" height="200px" />
-      <p>Created:jan.30.2020</p>
-      <p>location:Sarova Hotel</p>
-      </div>
-      
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">copy image</button>
-      </div>
-    </div>
-  </div>
- </div>
- <!-- Modal3 -->
-<div class="modal fade" id="exampleModal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delicacy</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <img src="https://i.imgur.com/ZTf2pFJ.jpg" title="source: imgur.com" width="200px" height="200px" />
-      <p>Created:jan.30.2020</p>
-      <p>location:Kempisky</p>
-      </div>
-      
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">copy image</button>
-      </div>
-    </div>
-  </div>
- </div>
-</div>
-</div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <img src="{{post.image.url }}" alt="" width="500" height="500">
+                <h4 class="modal-title">{{ post.image_description }}</h4>
+            </div>
+
+            <div class="modal-body">
+                {% for category in post.image_category.all %}
+                <p>Category: {{ category.name }}</p>
+                <p>Location: {{ post.image_location }}</p>
+                {% endfor %}
+            </div>
 
 
- {% endblock %}
+            <div class="modal-footer">
+                <input class="form-control" type="text" value="Gee">
+                <button type="button" value="" onclick="copyLink(this.value)"
+                    class="btn btn-outline-secondary my-2 my-sm-0 link-btn">Copy Photo Link</button>
+                <button type="button" class="" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
